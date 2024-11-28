@@ -9,6 +9,10 @@
         <!-- 打印SQL语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+    <typeAliases>
+        <typeAlias type="com.ustclab.emoji.common.model.dao.User" alias="User"/>
+        <typeAlias type="com.ustclab.emoji.common.model.dao.Emoji" alias="Eomji"/>
+    </typeAliases>
     <plugins>
         <!-- 分页插件 -->
         <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
