@@ -14,6 +14,23 @@
         WHERE user_name = #{userName}
         AND status = 1
     </select>
+    <select id="getByPage" parameterType="UserDto" resultType="User">
+        SELECT <include refid="user_attributes"/>
+        FROM user
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and user_name like concat('%',#{keyword},'%')
+            </if>
+
+            <if test="createTimeBegin != null and createTimeBegin != ''">
+                and create_time >= #{createTimeBegin}
+            </if>
+            <if test="createTimeEnd != null and createTimeEnd != ''">
+                and create_time &lt;= #{createTimeEnd}
+            </if>
+        </where>
+        order by user_id desc
+    </select>
 
     <insert id="insert" parameterType="User">
         INSERT INTO `user` (`password`, email, `user_name`, `status`) VALUES

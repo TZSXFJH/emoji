@@ -8,7 +8,7 @@ import lombok.Data;
 public class Result<T> {
 
     //返回码
-    @Schema(description = "业务状态码")
+    @Schema(description = "响应状态码")
     private Integer code;
 
     //返回消息
@@ -16,7 +16,7 @@ public class Result<T> {
     private String message;
 
     //返回数据
-    @Schema(description = "业务数据")
+    @Schema(description = "响应数据")
     private T data;
 
     // 私有化构造
