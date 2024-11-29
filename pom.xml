@@ -34,7 +34,7 @@
         <fastjson.version>2.0.21</fastjson.version>
         <mybatis.version>3.0.1</mybatis.version>
         <pagehelper.version>1.4.3</pagehelper.version>
-        <swagger3.version>1.7.0</swagger3.version>
+        <swagger3.version>2.1.0</swagger3.version>
         <jwt.version>3.8.3</jwt.version>
     </properties>
 
@@ -69,7 +69,7 @@
 
             <dependency>
                 <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
                 <version>${swagger3.version}</version>
             </dependency>
 
@@ -82,22 +82,5 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

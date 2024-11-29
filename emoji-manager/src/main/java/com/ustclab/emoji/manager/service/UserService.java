@@ -2,7 +2,10 @@ package com.ustclab.emoji.manager.service;
 
 import com.ustclab.emoji.common.model.dao.User;
 import com.ustclab.emoji.common.model.dto.LoginDto;
+import com.ustclab.emoji.common.model.dto.UserDto;
 import com.ustclab.emoji.common.model.vo.LoginVo;
+
+import java.util.List;
 
 /**
  * @author TZSXFJH
@@ -13,4 +16,5 @@ public interface UserService {
 
     void register(User user);
 
+    List<User> findByPage(Integer pageNum, Integer pageSize, UserDto userDto);
 }

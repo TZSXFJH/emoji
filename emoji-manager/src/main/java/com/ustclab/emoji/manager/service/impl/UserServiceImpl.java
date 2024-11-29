@@ -1,8 +1,10 @@
 package com.ustclab.emoji.manager.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.ustclab.emoji.common.exception.EmojiException;
 import com.ustclab.emoji.common.model.dao.User;
 import com.ustclab.emoji.common.model.dto.LoginDto;
+import com.ustclab.emoji.common.model.dto.UserDto;
 import com.ustclab.emoji.common.model.vo.LoginVo;
 import com.ustclab.emoji.common.model.vo.ResultCodeEnum;
 import com.ustclab.emoji.manager.mapper.UserMapper;
@@ -11,6 +13,8 @@ import com.ustclab.emoji.common.utils.JwtUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+
+import java.util.List;
 
 /**
  * @author TZSXFJH
@@ -23,7 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginVo login(LoginDto loginDto) {
-        String password = loginDto.getPassword();
         String userName = loginDto.getUserName();
         User user = userMapper.getByUserName(userName);
         if(user == null) {
@@ -47,5 +50,11 @@ public class UserServiceImpl implements UserService {
         }
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         userMapper.insert(user);
+    }
+
+    @Override
+    public List<User> findByPage(Integer pageNum, Integer pageSize, UserDto userDto) {
+        PageHelper.startPage(pageNum, pageSize);
+        return userMapper.getByPage(userDto);
     }
 }
