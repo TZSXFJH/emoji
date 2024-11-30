@@ -1,6 +1,7 @@
 package com.ustclab.emoji.manager.mapper;
 
 import com.ustclab.emoji.common.model.dao.Emoji;
+import com.ustclab.emoji.common.model.vo.EmojiVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.Timestamp;
@@ -14,4 +15,6 @@ import java.util.List;
 public interface EmojiMapper {
 
     List<Emoji> get(Timestamp startTimestamp, Timestamp endTimestamp);
+
+    List<EmojiVo> getAll();
 }

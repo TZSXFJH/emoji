@@ -1,4 +1,4 @@
-package com.ustclab.emoji.common.utils;
+package com.ustclab.emoji.common.util;
 
 import com.ustclab.emoji.common.model.dao.User;
 

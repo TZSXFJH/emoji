@@ -13,6 +13,7 @@
         <typeAlias type="com.ustclab.emoji.common.model.dao.User" alias="User"/>
         <typeAlias type="com.ustclab.emoji.common.model.dao.Emoji" alias="Emoji"/>
         <typeAlias type="com.ustclab.emoji.common.model.dto.UserDto" alias="UserDto"/>
+        <typeAlias type="com.ustclab.emoji.common.model.vo.EmojiVo" alias="EmojiVo"/>
     </typeAliases>
     <plugins>
         <!-- 分页插件 -->

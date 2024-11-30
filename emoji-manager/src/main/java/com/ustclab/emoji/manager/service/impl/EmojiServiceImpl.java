@@ -1,18 +1,22 @@
 package com.ustclab.emoji.manager.service.impl;
 
+import com.alibaba.excel.EasyExcel;
 import com.ustclab.emoji.common.exception.EmojiException;
 import com.ustclab.emoji.common.model.dao.Emoji;
+import com.ustclab.emoji.common.model.vo.EmojiVo;
 import com.ustclab.emoji.common.model.vo.ResultCodeEnum;
-import com.ustclab.emoji.common.utils.TimeUtil;
+import com.ustclab.emoji.common.util.TimeUtil;
 import com.ustclab.emoji.manager.mapper.EmojiMapper;
 import com.ustclab.emoji.manager.service.EmojiService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.*;
 
 /**
@@ -72,5 +76,29 @@ public class EmojiServiceImpl implements EmojiService {
             }
         }
         return emojiMapList;
+    }
+
+    @Override
+    public void export(HttpServletResponse response) {
+        try {
+            // 设置响应结果类型
+            response.setContentType("application/vnd.ms-excel");
+            response.setCharacterEncoding("utf-8");
+
+            // URLEncoder.encode防止中文乱码
+            String fileName = URLEncoder.encode("表情数据", "UTF-8");
+            response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+            //response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
+
+            // 查询数据库中的数据
+            List<EmojiVo> emojiList = emojiMapper.getAll();
+
+            // 写出数据到浏览器端
+            EasyExcel.write(response.getOutputStream(), EmojiVo.class)
+                    .sheet("表情数据")
+                    .doWrite(emojiList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

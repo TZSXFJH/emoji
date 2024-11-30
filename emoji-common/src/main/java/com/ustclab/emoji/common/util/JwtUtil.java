@@ -1,4 +1,4 @@
-package com.ustclab.emoji.common.utils;
+package com.ustclab.emoji.common.util;
 
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.JWT;

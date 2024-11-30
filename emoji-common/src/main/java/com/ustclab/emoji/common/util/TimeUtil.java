@@ -1,4 +1,4 @@
-package com.ustclab.emoji.common.utils;
+package com.ustclab.emoji.common.util;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;

@@ -19,13 +19,7 @@
         <module>emoji-common</module>
         <module>emoji-service</module>
     </modules>
-    <url/>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -36,6 +30,7 @@
         <pagehelper.version>1.4.3</pagehelper.version>
         <swagger3.version>2.1.0</swagger3.version>
         <jwt.version>3.8.3</jwt.version>
+        <easyexcel.version>3.1.0</easyexcel.version>
     </properties>
 
     <dependencyManagement>
@@ -80,6 +75,11 @@
                 <version>${jwt.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
