@@ -1,5 +1,7 @@
 package com.ustclab.emoji.manager.service;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,4 +14,6 @@ public interface EmojiService {
 
 
     List<Map<String, Integer>> hourly(String startTime);
+
+    void export(HttpServletResponse response);
 }

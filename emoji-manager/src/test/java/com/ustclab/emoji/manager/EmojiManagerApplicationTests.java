@@ -1,6 +1,6 @@
 package com.ustclab.emoji.manager;
 
-import com.ustclab.emoji.common.utils.TimeUtil;
+import com.ustclab.emoji.common.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

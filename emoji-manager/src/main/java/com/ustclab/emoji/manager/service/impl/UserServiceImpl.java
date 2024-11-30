@@ -9,7 +9,7 @@ import com.ustclab.emoji.common.model.vo.LoginVo;
 import com.ustclab.emoji.common.model.vo.ResultCodeEnum;
 import com.ustclab.emoji.manager.mapper.UserMapper;
 import com.ustclab.emoji.manager.service.UserService;
-import com.ustclab.emoji.common.utils.JwtUtil;
+import com.ustclab.emoji.common.util.JwtUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;

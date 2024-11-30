@@ -7,6 +7,9 @@
     <sql id="emoji_attributes">
         emoji_id, emoji_code, timestamp
     </sql>
+    <sql id="emoji_user_attributes">
+        emoji_id, emoji_code, user_name sender_name, timestamp time
+    </sql>
     <select id="get" resultType="Emoji">
         SELECT <include refid="emoji_attributes"/>
         FROM emoji
@@ -18,6 +21,14 @@
                 and timestamp &lt;= #{endTimestamp}
             </if>
         </where>
+    </select>
+
+    <select id="getAll" resultType="EmojiVo">
+        SELECT <include refid="emoji_attributes"/>
+        FROM emoji e
+        JOIN user u
+        ON u.user_id = e.sender_id
+        ORDER BY emoji_id
     </select>
 
 </mapper>

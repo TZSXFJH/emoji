@@ -4,6 +4,7 @@ import com.ustclab.emoji.common.model.vo.Result;
 import com.ustclab.emoji.common.model.vo.ResultCodeEnum;
 import com.ustclab.emoji.manager.service.EmojiService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,11 @@ public class EmojiController {
     @GetMapping("/hourly")
     public Result<List<Map<String, Integer>>> hourly(String startTime) {
         return Result.build(emojiService.hourly(startTime), ResultCodeEnum.SUCCESS);
+    }
+
+    @GetMapping("/export")
+    public void export(HttpServletResponse response) {
+        emojiService.export(response);
     }
 
 }
