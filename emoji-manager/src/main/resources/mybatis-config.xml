@@ -11,7 +11,7 @@
     </settings>
     <typeAliases>
         <typeAlias type="com.ustclab.emoji.common.model.dao.User" alias="User"/>
-        <typeAlias type="com.ustclab.emoji.common.model.dao.Emoji" alias="Eomji"/>
+        <typeAlias type="com.ustclab.emoji.common.model.dao.Emoji" alias="Emoji"/>
         <typeAlias type="com.ustclab.emoji.common.model.dto.UserDto" alias="UserDto"/>
     </typeAliases>
     <plugins>

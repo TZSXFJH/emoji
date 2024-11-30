@@ -4,8 +4,10 @@ spring:
   datasource:
     username: emoji_manager
     password: 123456
-    url: jdbc:mysql://59.110.93.150:3306/db_emoji?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&userSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://59.110.93.150:3306/db_emoji?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&userSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    time-zone: GMT+8
 
 
 server:
