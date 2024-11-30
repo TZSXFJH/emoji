@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DID Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustclab.emoji.manager.mapper.EmojiMapper">
+    <sql id="emoji_attributes">
+        emoji_id, emoji_code, timestamp
+    </sql>
+    <select id="get" resultType="Emoji">
+        SELECT <include refid="emoji_attributes"/>
+        FROM emoji
+        <where>
+            <if test="startTimestamp != null">
+                and timestamp >= #{startTimestamp}
+            </if>
+            <if test="endTimestamp != null">
+                and timestamp &lt;= #{endTimestamp}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -35,7 +35,6 @@
     <insert id="insert" parameterType="User">
         INSERT INTO `user` (`password`, email, `user_name`, `status`) VALUES
         (#{password}, #{email}, #{userName}, TRUE);
-
     </insert>
 
 </mapper>
