@@ -44,7 +44,7 @@ public class LoginAuthInterceptor implements HandlerInterceptor {
         }
         String userId;
         try {
-            userId = JwtUtil.getAudience(token);
+            userId = JwtUtil.getAudience(token, 0);
             JwtUtil.verifyToken(token, userId);
 
         } catch (Exception e) {
@@ -52,11 +52,11 @@ public class LoginAuthInterceptor implements HandlerInterceptor {
             return false;
         }
         User user = JSON.parseObject(JwtUtil.getClaimByName(token, "user").asString(), User.class);
-        UserLocalUtil.set(user);
         if(!user.getUserId().toString().equals(userId)) {
             responseNoLoginInfo(response);
             return false;
         }
+        UserLocalUtil.set(user);
         // 放行
         log.info("登录校验通过");
         return true;

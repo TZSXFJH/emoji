@@ -3,6 +3,7 @@ package com.ustclab.emoji.manager.controller;
 import com.ustclab.emoji.common.model.dto.UserDto;
 import com.ustclab.emoji.common.model.vo.Result;
 import com.ustclab.emoji.common.model.vo.ResultCodeEnum;
+import com.ustclab.emoji.common.util.UserLocalUtil;
 import com.ustclab.emoji.manager.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -25,5 +26,10 @@ public class UserController {
                              UserDto userDto) {
         return Result.build(userService.findByPage(pageNum, pageSize, userDto),
                 ResultCodeEnum.SUCCESS);
+    }
+
+    @GetMapping("/info/get")
+    public Result get() {
+        return Result.build(UserLocalUtil.get(), ResultCodeEnum.SUCCESS);
     }
 }
