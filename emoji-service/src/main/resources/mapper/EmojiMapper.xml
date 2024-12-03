@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DID Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustclab.emoji.service.mapper.EmojiMapper">
+
+    <insert id="insert">
+        INSERT INTO emoji (emoji_code, sender_id)
+        VALUES (#{emojiCode}, #{userId})
+    </insert>
+
+    <select id="getByPage" resultType="emoji">
+        SELECT emoji_code, timestamp
+        FROM emoji
+        order by timestamp desc
+    </select>
+</mapper>

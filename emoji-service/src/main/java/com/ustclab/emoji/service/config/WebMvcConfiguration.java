@@ -1,4 +1,4 @@
-package com.ustclab.emoji.manager.config;
+package com.ustclab.emoji.service.config;
 
 import com.ustclab.emoji.common.interceptor.LoginAuthInterceptor;
 import jakarta.annotation.Resource;
@@ -17,7 +17,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginAuthInterceptor)
-                .addPathPatterns("/admin/user/**")
-                .addPathPatterns("/admin/emoji/**");
+                .addPathPatterns("/user/**")
+                .addPathPatterns("/emoji/**");
     }
 }

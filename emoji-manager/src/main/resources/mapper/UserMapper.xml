@@ -7,13 +7,16 @@
     <sql id="user_attributes">
         user_id, password, role, email, user_name, avatar, last_login_time, status, create_time, update_time
     </sql>
+
     <select id="getByUserName" resultType="User">
         SELECT
             <include refid="user_attributes"/>
         FROM user
         WHERE user_name = #{userName}
         AND status = 1
+        AND role = 1
     </select>
+
     <select id="getByPage" parameterType="UserDto" resultType="User">
         SELECT <include refid="user_attributes"/>
         FROM user
@@ -33,8 +36,8 @@
     </select>
 
     <insert id="insert" parameterType="User">
-        INSERT INTO `user` (`password`, email, `user_name`, `status`) VALUES
-        (#{password}, #{email}, #{userName}, TRUE);
+        INSERT INTO `user` (`password`, email, `user_name`, `status`, role) VALUES
+        (#{password}, #{email}, #{userName}, TRUE, 1);
     </insert>
 
 </mapper>
