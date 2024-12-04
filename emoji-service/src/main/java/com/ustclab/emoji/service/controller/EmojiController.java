@@ -28,7 +28,7 @@ public class EmojiController {
     }
 
     @GetMapping(value = "findByPage/{pageNum}/{pageSize}")
-    public Result findByPage(@PathVariable("pageNum") Integer pageNum,
+    public Result<List<Emoji>> findByPage(@PathVariable("pageNum") Integer pageNum,
                              @PathVariable("pageSize") Integer pageSize) {
         return Result.build(emojiService.findByPage(pageNum, pageSize),
                 ResultCodeEnum.SUCCESS);
