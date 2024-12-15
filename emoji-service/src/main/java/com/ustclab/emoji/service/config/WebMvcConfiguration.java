@@ -28,6 +28,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                 .allowCredentials(true)               // 是否允许在跨域的情况下传递Cookie
                 .allowedOriginPatterns("*")           // 允许请求来源的域规则
                 .allowedMethods("*")
-                .allowedHeaders("*") ;
+                .allowedHeaders("*");
     }
 }

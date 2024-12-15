@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService {
         if(!DigestUtils.md5DigestAsHex(passwordDto.getOldPassword().getBytes()).equals(password)){
             throw new EmojiException(ResultCodeEnum.PASSWORD_ERROR);
         }
-        userMapper.update(UserLocalUtil.get().getUserId() ,passwordDto.getNewPassword());
-        //TODO
+        userMapper.update(UserLocalUtil.get().getUserId() ,DigestUtils.md5DigestAsHex(passwordDto.getNewPassword().getBytes()));
+        // TODO
         //
     }
 

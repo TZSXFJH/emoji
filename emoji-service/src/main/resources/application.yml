@@ -14,7 +14,6 @@ spring:
       port: 6379
       password: H@Ld9mdD(buU
 
-
 server:
   port: 8081
 

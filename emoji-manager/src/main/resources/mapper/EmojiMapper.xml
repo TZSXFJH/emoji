@@ -24,7 +24,7 @@
     </select>
 
     <select id="getAll" resultType="EmojiVo">
-        SELECT <include refid="emoji_attributes"/>
+        SELECT <include refid="emoji_user_attributes"/>
         FROM emoji e
         JOIN user u
         ON u.user_id = e.sender_id
